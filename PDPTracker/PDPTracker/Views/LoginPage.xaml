@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="PDPTracker.LoginPage"
+		xmlns:converters="clr-namespace:PDPTracker.Converters;assembly=PDPTracker"
+		xmlns:ctrl="clr-namespace:PDPTracker.Controls;assembly=PDPTracker"
+		Title="{Binding LoginTitle}">
+	
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+	</ContentPage.Padding>
+  
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:MultiTriggerConverter x:Key="LoginButtonConverter"/>
+
+      <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="#621A41"/>
+      </Style>
+
+      <Style TargetType="Label">
+        <Setter Property="TextColor" Value="#621A41"/>
+      </Style>
+
+      <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#621A41"/>
+        <Setter Property="TextColor" Value="White"/>
+      </Style>
+      
+      <Style TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="#621A41"/>
+      </Style>
+      
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+    <StackLayout Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+		<!--<Label Text="J♠" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+           FontSize="48"
+           FontAttributes="Bold"/>-->
+        <Frame Padding="0" BackgroundColor="#621A41" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HasShadow="false" OutlineColor="#621A41">
+			<Image Source="https://jackspadedit.azurewebsites.net/Content/Images/JS.jpg" 
+				WidthRequest="150" Aspect="AspectFit" 
+				HorizontalOptions="Fill" 
+				VerticalOptions="Center"/>
+		</Frame>
+		<Entry x:Name="username" Text="{Binding Username}" Placeholder="Sogeti email" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+		<Entry x:Name="password" Text="{Binding Password}" Placeholder="Password" IsPassword="True" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+
+		<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+			<ctrl:PDPSwitch  IsToggled="{Binding ShouldRemember}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+			<Label Text="Remember me" FontSize="16" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+		</StackLayout>
+
+		<Label Text="{Binding ErrorMsg}" IsVisible="{Binding ShowErrorMsg}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="Red"/>
+
+		<Button Text="LOGIN" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"/>
+			
+      <ActivityIndicator x:Name="ActivityIndicator" HorizontalOptions="Center" VerticalOptions="Center"
+                         IsRunning="True" IsVisible="{Binding ShowIndicator}"/>
+	</StackLayout>
+</ContentPage>

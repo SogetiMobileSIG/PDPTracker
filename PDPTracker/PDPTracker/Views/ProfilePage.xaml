@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="PDPTracker.ProfilePage"
+		Title="{Binding ProfileTitle}">
+	<ContentPage.Content>
+
+		<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="3*"/>
+		</Grid.RowDefinitions>
+
+			<BoxView BackgroundColor="#621A41" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+
+			<Frame Padding="20" HorizontalOptions="FillAndExpand" VerticalOptions="End" HasShadow="false" BackgroundColor="Transparent">
+
+			<Label Text="{Binding User.Name}"
+				TextColor="White"/>
+			</Frame>
+
+			<ListView Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" ItemsSource="{Binding ProfileItems}" 
+					RowHeight="70" 
+					SeparatorVisibility="None"
+					ItemSelected="Handle_ItemSelected">
+				
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding Value}" Detail="{Binding Item}"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

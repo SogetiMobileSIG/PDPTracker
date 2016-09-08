@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="PDPTracker.ActivityPage"
+		Title="{Binding ActivityTitle}">
+	<ContentPage.Content>
+    <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+      	<Label x:Name="DateLabel" Text="{Binding CompletedDate, StringFormat='Completed {0:MMMM dd, yyyy}'}"
+
+           	HorizontalOptions="FillAndExpand"
+           	VerticalOptions="Start"
+			HorizontalTextAlignment="End"
+            FontSize="12"
+            TextColor="Gray"/>
+
+		<Label x:Name="DescriptionLabel" 
+			Text="{Binding Description}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="StartAndExpand"
+			FontSize="16"/>
+
+		<Entry x:Name="DescriptionEntry" 
+			Text="{Binding Description}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="StartAndExpand"
+			FontSize="16"
+			IsVisible="false"/>
+      
+    </StackLayout>
+    
+	</ContentPage.Content>
+</ContentPage>
