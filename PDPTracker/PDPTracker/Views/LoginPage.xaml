@@ -4,7 +4,7 @@
 		x:Class="PDPTracker.LoginPage"
 		xmlns:converters="clr-namespace:PDPTracker.Converters;assembly=PDPTracker"
 		xmlns:ctrl="clr-namespace:PDPTracker.Controls;assembly=PDPTracker"
-		Title="{Binding LoginTitle}">
+		Title="{Binding Title}">
 	
 	<ContentPage.Padding>
 		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>

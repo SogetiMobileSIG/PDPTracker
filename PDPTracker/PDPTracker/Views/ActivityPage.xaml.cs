@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Hackathon.Spade.Model;
 using Xamarin.Forms;
 
 namespace PDPTracker
@@ -70,8 +67,7 @@ namespace PDPTracker
 
         private void OnSave ()
         {
-            _vm.OnSave ();
-
+            _vm.SaveCommand.Execute (this);
             DateLabel.IsVisible = true;
         }
     }

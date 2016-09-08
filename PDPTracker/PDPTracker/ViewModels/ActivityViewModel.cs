@@ -1,53 +1,65 @@
 using System;
 using System.Windows.Input;
 using Hackathon.Spade.Model;
+using PDPTracker.Resources;
 using Xamarin.Forms;
 
 namespace PDPTracker
 {
     public class ActivityViewModel : BaseViewModel
     {
-        Page _parentPage;
+        #region Private Fields
 
-        private string _title;
-        public string ActivityTitle {
-            get {
-                return _title;
-            }
+        private Page _parentPage;
 
-            set {
-                _title = value;
-                OnPropertyChanged ();
-            }
-        }
+        #endregion
+
+        #region Properties
 
         private Activity _activity;
-        public Activity Activity
-        {
+        public Activity Activity {
             get { return _activity; }
-            set { _activity = value; OnPropertyChanged();}
+            set { _activity = value; OnPropertyChanged (); }
         }
-         public string Description {             get { return Activity?.Description; }             set { Activity.Description = value; OnPropertyChanged (); }         }
+
+        public string Description {
+            get { return Activity?.Description; }
+            set { Activity.Description = value; OnPropertyChanged (); }
+        }
 
         public DateTime? CompletedDate => Activity?.CompletedDate;
+
+        #endregion
+
+        #region Commands
+
+        public ICommand SaveCommand => new Command (OnSave);
+
+        #endregion
+
+        #region Constructors
 
         public ActivityViewModel (Page page)
         {
             _parentPage = page;
             this.Activity = new Activity () { Id = DataService.Instance.Activities.Count + 1, CompletedDate = DateTime.Now };
-            this.ActivityTitle = "New Activity";
+            Title = PDPConstants.NewActivity;
         }
 
         public ActivityViewModel (Page page, int activityId)
         {
             _parentPage = page;
             this.Activity = DataService.Instance.GetActivityById (activityId);
-            this.ActivityTitle = "Activity Details";
+            Title = PDPConstants.ActivityDetails;
         }
 
-        public void OnSave(){
-            DataService.Instance.UpdateActivity (this.Activity);
-        }
+        #endregion
+
+        #region Private Methods
+
+        private void OnSave () => DataService.Instance.UpdateActivity (this.Activity);
+
+        #endregion
     }
 }
 
