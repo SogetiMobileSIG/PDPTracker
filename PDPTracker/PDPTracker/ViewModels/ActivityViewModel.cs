@@ -34,19 +34,19 @@ namespace PDPTracker
         public ActivityViewModel (Page page)
         {
             _parentPage = page;
-            this.Activity = new Activity () { Id = DataService.Activities.Count + 1, CompletedDate = DateTime.Now };
+            this.Activity = new Activity () { Id = DataService.Instance.Activities.Count + 1, CompletedDate = DateTime.Now };
             this.ActivityTitle = "New Activity";
         }
 
         public ActivityViewModel (Page page, int activityId)
         {
             _parentPage = page;
-            this.Activity = DataService.GetActivityById (activityId);
+            this.Activity = DataService.Instance.GetActivityById (activityId);
             this.ActivityTitle = "Activity Details";
         }
 
         public void OnSave(){
-            DataService.UpdateActivity (this.Activity);
+            DataService.Instance.UpdateActivity (this.Activity);
         }
     }
 }

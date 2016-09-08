@@ -13,12 +13,12 @@ namespace PDPTracker
 
         public string ActivitiesTitle => "Activities";
 
-        public bool IsLoggedIn => DataService.IsLoginSuccessful();
+        public bool IsLoggedIn => DataService.Instance.IsLoginSuccessful();
 
         //private List<Activity> _activities;
         public List<Activity> Activities {
-            get { return DataService.Activities; }
-            set { DataService.Activities = value; OnPropertyChanged ();}
+            get { return DataService.Instance.Activities; }
+            set { DataService.Instance.Activities = value; OnPropertyChanged ();}
         }
         //{
         //    get { return _activities; }

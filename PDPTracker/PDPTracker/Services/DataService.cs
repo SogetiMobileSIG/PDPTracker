@@ -4,18 +4,20 @@ using Hackathon.Spade.Model;
 
 namespace PDPTracker
 {
-    public static class DataService
+    public class DataService
     {
-        public static List<Activity> Activities {
+        public static DataService Instance { get; private set; } = new DataService ();
+
+        public List<Activity> Activities {
             get;
             set;
         }
 
-        public static Activity GetActivityById (int aId){
+        public Activity GetActivityById (int aId){
             return Activities.Find (x => x.Id == aId);
         }
 
-        public static void UpdateActivity (Activity activity)
+        public void UpdateActivity (Activity activity)
         {
             var index = Activities.FindIndex (x => x.Id == activity.Id);
 
@@ -25,12 +27,9 @@ namespace PDPTracker
             Activities.Insert (0, activity);
         }
 
-        public static bool IsLoginSuccessful () => RememberMe;
+        public bool IsLoginSuccessful () => RememberMe;
 
-        public static bool RememberMe {
-            get;
-            set;
-        }
+        public bool RememberMe { get; set; }
     }
 }
 

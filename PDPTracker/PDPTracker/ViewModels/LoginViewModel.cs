@@ -82,10 +82,10 @@ namespace PDPTracker
 
         public bool ShouldRemember {
             get {
-                return DataService.RememberMe;
+                return DataService.Instance.RememberMe;
             }
             set {
-                DataService.RememberMe = value;
+                DataService.Instance.RememberMe = value;
                 OnPropertyChanged ();}
         }
 
