@@ -9,12 +9,22 @@ namespace PDPTracker
         #region Properties
 
         #region Title
-        private string _title;          public string Title {             get { return _title; }             set { _title = value; }         } 
+        private string _title;
+
+        public string Title {
+            get { return _title; }
+            set { _title = value; }
+        }
+
         #endregion
 
         #region IsBusy
         private bool _isBusy;
-         public bool IsBusy {             get { return _isBusy; }             set { _isBusy = value; }         }
+
+        public bool IsBusy {
+            get { return _isBusy; }
+            set { _isBusy = value; }
+        }
         #endregion
 
         #endregion

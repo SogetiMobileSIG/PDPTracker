@@ -32,7 +32,7 @@ namespace PDPTracker
         private void InitializeToolbar ()
         {
             var addButton = new ToolbarItem {
-                Text = "+",
+                Text = "ADD",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
