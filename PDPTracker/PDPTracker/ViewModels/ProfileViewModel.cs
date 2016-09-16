@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PDPTracker.Resources;
 using Xamarin.Forms;
 
 namespace PDPTracker
@@ -10,6 +11,7 @@ namespace PDPTracker
 
         public ProfileViewModel (Page page)
         {
+            Title = PDPConstants.Profile;
             _page = page as ProfilePage;
 
             PopulateProfileItems ();

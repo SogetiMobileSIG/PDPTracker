@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace PDPTracker
 {
@@ -13,7 +14,7 @@ namespace PDPTracker
 
         public string Title {
             get { return _title; }
-            set { _title = value; }
+            set { _title = value; OnPropertyChanged (); }
         }
 
         #endregion
@@ -23,8 +24,12 @@ namespace PDPTracker
 
         public bool IsBusy {
             get { return _isBusy; }
-            set { _isBusy = value; }
+            set { _isBusy = value; OnPropertyChanged (); }
         }
+        #endregion
+
+        #region CurrentPage
+        private Page _currentPage;          public Page CurrentPage {             get { return _currentPage; }             set { _currentPage = value; OnPropertyChanged (); }         } 
         #endregion
 
         #endregion

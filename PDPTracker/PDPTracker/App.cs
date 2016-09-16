@@ -9,8 +9,15 @@ namespace PDPTracker
     {
         public App ()
         {
-            // The root page of your application
-            MainPage = new NavigationPage (new HomePage()) { BarBackgroundColor = Color.FromRgb(98, 26, 65), BarTextColor = Color.White };
+            //var navPage = new NavigationPage (new HomePage ()) { 
+            //    BarBackgroundColor = Color.FromRgb (98, 26, 65), 
+            //    BarTextColor = Color.White 
+            //};
+
+            if (Device.OS == TargetPlatform.iOS)
+                MainPage = new TabbedMainPage();
+            else
+                MainPage = new MasterDetailMainPage();
         }
 
         private static User _currentUser = new User { Name = "Hussain N. Abbasi" };

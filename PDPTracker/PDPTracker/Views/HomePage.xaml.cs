@@ -32,7 +32,7 @@ namespace PDPTracker
         private void InitializeToolbar ()
         {
             var addButton = new ToolbarItem {
-                Text = "ADD",
+                Text = "NEW",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
@@ -42,18 +42,6 @@ namespace PDPTracker
             };
 
             ToolbarItems.Add (addButton);
-
-            var profileButton = new ToolbarItem {
-                Text = "O",
-                Order = ToolbarItemOrder.Primary,
-                Priority = 1
-            };
-
-            profileButton.Clicked += async (sender, e) => {
-                await Navigation.PushAsync (new ProfilePage ());
-            };
-
-            ToolbarItems.Add (profileButton);
         }
     }
 }

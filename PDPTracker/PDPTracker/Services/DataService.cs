@@ -29,7 +29,7 @@ namespace PDPTracker
 
         public bool IsLoginSuccessful () => RememberMe;
 
-        public bool RememberMe { get; set; }
+        public bool RememberMe { get; set; } = true;
     }
 }
 

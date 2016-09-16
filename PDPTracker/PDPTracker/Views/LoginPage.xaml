@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="PDPTracker.LoginPage"
@@ -16,7 +16,7 @@
 
       <Style TargetType="Entry">
         <Setter Property="TextColor" Value="#621A41"/>
-      </Style>
+  </Style>
 
       <Style TargetType="Label">
         <Setter Property="TextColor" Value="#621A41"/>
@@ -34,7 +34,10 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 
-    <StackLayout Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+    <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+		<StackLayout.Padding>
+			<OnIdiom x:TypeArguments="Thickness" Phone="10" Tablet="100"/>
+		</StackLayout.Padding>
 		<!--<Label Text="J♠" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
            FontSize="48"
            FontAttributes="Bold"/>-->
@@ -47,9 +50,9 @@
 		<Entry x:Name="username" Text="{Binding Username}" Placeholder="Sogeti email" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
 		<Entry x:Name="password" Text="{Binding Password}" Placeholder="Password" IsPassword="True" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
 
-		<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-			<ctrl:PDPSwitch  IsToggled="{Binding ShouldRemember}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+		<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand">
 			<Label Text="Remember me" FontSize="16" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+			<ctrl:PDPSwitch  IsToggled="{Binding ShouldRemember}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
 		</StackLayout>
 
 		<Label Text="{Binding ErrorMsg}" IsVisible="{Binding ShowErrorMsg}" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="Red"/>
@@ -59,4 +62,5 @@
       <ActivityIndicator x:Name="ActivityIndicator" HorizontalOptions="Center" VerticalOptions="Center"
                          IsRunning="True" IsVisible="{Binding ShowIndicator}"/>
 	</StackLayout>
+
 </ContentPage>
