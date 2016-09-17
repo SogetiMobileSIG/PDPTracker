@@ -7,6 +7,8 @@ namespace PDPTracker
 {
     public partial class MasterDetailMainPage : MasterDetailPage
     {
+        private bool _isSubscribed;
+
         public MasterDetailMainPage ()
         {
             InitializeComponent ();
@@ -15,8 +17,23 @@ namespace PDPTracker
 
         void SubscribeEvents ()
         {
+            if (_isSubscribed)
+                return;
+            
             menuPage.ListView.ItemSelected += UpdateDetailPage;
             MessagingCenter.Subscribe<MenuPage, Type> (this, PDPConstants.MenuItemTapped, UpdateDetailPage);
+            _isSubscribed = true;
+        }
+
+
+        void UnsubscribeEvents ()
+        {
+            if (!_isSubscribed)
+                return;
+
+            menuPage.ListView.ItemSelected -= UpdateDetailPage;
+            MessagingCenter.Unsubscribe<MenuPage, Type>(this, PDPConstants.MenuItemTapped);
+            _isSubscribed = false;
         }
 
         void UpdateDetailPage (MenuPage arg1, Type arg2)
@@ -44,11 +61,11 @@ namespace PDPTracker
         protected override void OnAppearing ()
         {
             base.OnAppearing ();
+            SubscribeEvents ();
         }
         protected override void OnDisappearing ()
         {
-            //menuPage.ListView.ItemSelected -= UpdateDetailPage;
-            //MessagingCenter.Unsubscribe<MenuPage> (this, PDPConstants.MenuItemTapped);
+            UnsubscribeEvents ();
             base.OnDisappearing ();
         }
     }

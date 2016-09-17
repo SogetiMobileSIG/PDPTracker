@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 using PDPTracker.Resources;
-using Xamarin.Forms;
 
 namespace PDPTracker
 {
@@ -14,7 +11,8 @@ namespace PDPTracker
             InitializeMenu ();
         }
 
-        private List<MasterMenuItem> _menuItems;          public List<MasterMenuItem> MenuItems {             get { return _menuItems; }             set { _menuItems = value; OnPropertyChanged (); }         }
+        private List<MasterMenuItem> _menuItems;          public List<MasterMenuItem> MenuItems {             get { return _menuItems; }             set { _menuItems = value; 
+                OnPropertyChanged (); }         }
 
         void InitializeMenu ()
         {

@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Input;
-using Hackathon.Spade.Model;
+using PDPTracker.Models;
 using PDPTracker.Resources;
 using Xamarin.Forms;
 
@@ -10,7 +10,25 @@ namespace PDPTracker
     {
         #region Private Fields
 
-        private Page _parentPage;
+        private IDataService _dataService;
+
+        #endregion
+
+        #region Constructors
+
+        public ActivityViewModel (Page page, int activityId = -1)
+        {
+            CurrentPage = page;
+            _dataService = new DataService ();
+
+            if (activityId < 0) {
+                this.Activity = new Activity () { Id = _dataService.GetActivities ().Count + 1, CompletedDate = DateTime.Now };
+                Title = PDPConstants.NewActivity;
+            } else {
+                this.Activity = _dataService.GetActivityById (activityId);
+                Title = PDPConstants.ActivityDetails;
+            }
+        }
 
         #endregion
 
@@ -37,27 +55,9 @@ namespace PDPTracker
 
         #endregion
 
-        #region Constructors
-
-        public ActivityViewModel (Page page)
-        {
-            _parentPage = page;
-            this.Activity = new Activity () { Id = DataService.Instance.Activities.Count + 1, CompletedDate = DateTime.Now };
-            Title = PDPConstants.NewActivity;
-        }
-
-        public ActivityViewModel (Page page, int activityId)
-        {
-            _parentPage = page;
-            this.Activity = DataService.Instance.GetActivityById (activityId);
-            Title = PDPConstants.ActivityDetails;
-        }
-
-        #endregion
-
         #region Private Methods
 
-        private void OnSave () => DataService.Instance.UpdateActivity (this.Activity);
+        private void OnSave () => _dataService.UpdateActivity (this.Activity);
 
         #endregion
     }

@@ -7,12 +7,10 @@ namespace PDPTracker
 {
     public class ProfileViewModel : BaseViewModel
     {
-        ProfilePage _page;
-
         public ProfileViewModel (Page page)
         {
             Title = PDPConstants.Profile;
-            _page = page as ProfilePage;
+            CurrentPage = page as ProfilePage;
 
             PopulateProfileItems ();
         }

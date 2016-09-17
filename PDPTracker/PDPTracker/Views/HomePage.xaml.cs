@@ -36,10 +36,7 @@ namespace PDPTracker
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
-
-            addButton.Clicked += async (sender, args) => {
-                await Navigation.PushAsync (new ActivityPage ());
-            };
+            addButton.SetBinding (MenuItem.CommandProperty, "NewActivityCommand");
 
             ToolbarItems.Add (addButton);
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -13,15 +9,13 @@ namespace PDPTracker
 
         #region Private Fields
 
-        private readonly Page _parentPage;
-
         #endregion
 
         #region Constructor
 
         public LoginViewModel (Page parentPage)
         {
-            _parentPage = parentPage;
+            CurrentPage = parentPage;
         }
 
         #endregion
@@ -82,10 +76,10 @@ namespace PDPTracker
 
         public bool ShouldRemember {
             get {
-                return DataService.Instance.RememberMe;
+                return _shouldRemember;
             }
             set {
-                DataService.Instance.RememberMe = value;
+                _shouldRemember = value;
                 OnPropertyChanged ();}
         }
 
@@ -148,7 +142,7 @@ namespace PDPTracker
             if (Task.Run(() => LoginSuccessful()).Result)
             {
                 ShowErrorMsg = false;
-                await _parentPage.Navigation.PopModalAsync();
+                await CurrentPage.Navigation.PopModalAsync();
             }
             else
                 ShowErrorMsg = true;

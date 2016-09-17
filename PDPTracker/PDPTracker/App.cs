@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Hackathon.Spade.Model;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace PDPTracker
 {
