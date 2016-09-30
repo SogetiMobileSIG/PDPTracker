@@ -8,19 +8,22 @@ PDP Tracker helps you track your activities for IBP dashboard. Have an activity 
 * Native UI look for iOS and Android
 
 ## Current Screenshots
+### Navigation
+![Tabbed View](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/Activities.png)
+![Navigation Drawer](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/NavigationDrawer.png)
+
 ### Activities
 ![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/Activities.png)
 ![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/Activities.png)
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/NavigationDrawer.png)
 
 ### New Activity
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/NewActivity.png)
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/NewActivity.png)
+![New Activity](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/NewActivity.png)
+![New Activity](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/NewActivity.png)
 
 ### Activity Details
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/ActivityDetails.png)
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/ActivityDetails.png)
+![Activity Details](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/ActivityDetails.png)
+![Activity Details](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/ActivityDetails.png)
 
 ### Profile
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/Profile.png)
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/Profile.png)
+![Profile](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/Profile.png)
+![Profile](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/Profile.png)
