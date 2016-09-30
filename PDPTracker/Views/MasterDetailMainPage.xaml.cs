@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using PDPTracker.Models;
 using PDPTracker.Resources;
 using Xamarin.Forms;
 

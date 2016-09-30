@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Converters\MultiTriggerConverter.cs" />
-    <Compile Include="Models\Activity.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\PDPConstants.cs" />
@@ -54,9 +53,7 @@
     <Compile Include="Views\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProfileItem.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Views\TabbedMainPage.xaml.cs">
       <DependentUpon>TabbedMainPage.xaml</DependentUpon>
     </Compile>
@@ -67,9 +64,9 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MenuViewModel.cs" />
-    <Compile Include="Models\MasterMenuItem.cs" />
     <Compile Include="Controls\PDPNavigationPage.cs" />
     <Compile Include="Services\IDataService.cs" />
+    <Compile Include="Converters\InvertBoolConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -114,6 +111,16 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PDPTracker.Models\PDPTracker.Models.csproj">
+      <Project>{1FB4B308-A101-4BFC-9E65-705D5C5B4165}</Project>
+      <Name>PDPTracker.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="PDPTracker.Data\PDPTracker.Data.csproj">
+      <Project>{59011766-3532-45B2-A14B-916AC0D05957}</Project>
+      <Name>PDPTracker.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

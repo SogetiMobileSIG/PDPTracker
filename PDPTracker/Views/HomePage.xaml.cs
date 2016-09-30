@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Xamarin.Forms;
 
 namespace PDPTracker
@@ -21,24 +21,48 @@ namespace PDPTracker
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            ActivitiesList.ItemsSource = null;
-            ActivitiesList.ItemsSource = _vm.Activities;
-
-            if (ActivitiesList.SelectedItem != null)
-                ActivitiesList.SelectedItem = null;
+            RefreshList ();
         }
 
         private void InitializeToolbar ()
         {
             var addButton = new ToolbarItem {
-                Text = "NEW",
+                Text = "ADD",
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
             addButton.SetBinding (MenuItem.CommandProperty, "NewActivityCommand");
 
             ToolbarItems.Add (addButton);
+        }
+
+        void Delete_Clicked (object sender, System.EventArgs e)
+        {
+            var menuItem = (MenuItem)sender;
+
+            if (!_vm.DeleteActivityCommand.CanExecute (menuItem.CommandParameter))
+                return;
+            
+            _vm.DeleteActivityCommand.Execute (menuItem.CommandParameter);
+            RefreshList ();
+        }
+
+        void Handle_Refreshing (object sender, System.EventArgs e)
+        {
+            var lv = (ListView)sender;
+            RefreshList ();
+            lv.IsRefreshing = false;
+        }
+
+        void RefreshList()
+        {
+            ActivitiesList.ItemsSource = null;
+            ActivitiesList.ItemsSource = _vm.Activities;
+
+            ActivitiesList.SelectedItem = null;
+
+            ActivitiesList.IsVisible = _vm.Activities.Any ();
+            NoActivitiesLabel.IsVisible = !_vm.Activities.Any ();
         }
     }
 }

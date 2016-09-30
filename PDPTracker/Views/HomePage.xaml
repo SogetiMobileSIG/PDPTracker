@@ -1,19 +1,37 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PDPTracker.HomePage"
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:converters="clr-namespace:PDPTracker.Converters;assembly=PDPTracker" 
+		x:Class="PDPTracker.HomePage"
 		Title="{Binding Title}">
+
 	<ContentPage.Content>
-    <ListView x:Name="ActivitiesList" ItemsSource="{Binding Activities}" SelectedItem="{Binding SelectedActivity}"
-              HorizontalOptions="FillAndExpand"
-              VerticalOptions="FillAndExpand"
-			  RowHeight="60">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Description}" 
-                    TextColor="#4F141A"
-                    Detail="{Binding CompletedDate, StringFormat='{0:MMMM dd, yyyy}'}"
-                    DetailColor="Gray"/>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
+		<Grid>
+		    <ListView x:Name="ActivitiesList" ItemsSource="{Binding Activities}" SelectedItem="{Binding SelectedActivity}"
+		              HorizontalOptions="FillAndExpand"
+		              VerticalOptions="FillAndExpand"
+					  RowHeight="60"
+					  IsPullToRefreshEnabled="true"
+					  Refreshing="Handle_Refreshing">
+				
+		      <ListView.ItemTemplate>
+		        <DataTemplate>
+		          <TextCell Text="{Binding Description}" 
+		                    TextColor="#4F141A"
+		                    Detail="{Binding CompletedDate, StringFormat='{0:MMMM dd, yyyy}'}"
+		                    DetailColor="Gray">
+	                    <TextCell.ContextActions>
+							<MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="true"/>
+						</TextCell.ContextActions>
+					</TextCell>
+		        </DataTemplate>
+		      </ListView.ItemTemplate>
+		    </ListView>
+
+			<Label x:Name="NoActivitiesLabel" Text="No activities recorded" 
+					HorizontalOptions="Fill" 
+					VerticalOptions="Center" 
+					HorizontalTextAlignment="Center"/>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using SQLitePCL;
 
 namespace PDPTracker.Droid
 {
@@ -17,10 +18,10 @@ namespace PDPTracker.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate (bundle);
 
             global::Xamarin.Forms.Forms.Init (this, bundle);
+            raw.SetProvider (new SQLite3Provider_e_sqlite3 ());
 
             LoadApplication (new App ());
         }

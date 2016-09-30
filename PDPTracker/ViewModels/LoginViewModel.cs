@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using PDPTracker.Models;
 using Xamarin.Forms;
 
 namespace PDPTracker
@@ -9,33 +10,22 @@ namespace PDPTracker
 
         #region Private Fields
 
+        IDataService _dataService;
+
         #endregion
 
         #region Constructor
 
         public LoginViewModel (Page parentPage)
         {
+            Title = "PDP Tracker";
             CurrentPage = parentPage;
+            _dataService = new DataService ();
         }
 
         #endregion
 
         #region Properties
-
-        #region Login Title
-
-        private string _loginTitle = "PDP Tracker";
-
-        public string LoginTitle {
-            get { 
-                return _loginTitle; 
-            }
-            set {
-                _loginTitle = value;
-                OnPropertyChanged ();
-            }
-        }
-        #endregion
 
         #region Username
 
@@ -150,7 +140,20 @@ namespace PDPTracker
             ShowIndicator = false;
         }
 
-        private bool LoginSuccessful() => string.Equals(Username, Password);
+        private bool LoginSuccessful () 
+        {
+            var userId = _dataService.Login (Username, Password);
+            User user;
+
+            if(userId > 0){
+                user = _dataService.GetUser (userId);
+                CurrentPage.DisplayAlert("Login", user.Name, "OK");
+                return true;
+            } else {
+                CurrentPage.DisplayAlert ("Login", "Login failed", "OK");
+                return false;
+            }
+        }
 
 
         #endregion

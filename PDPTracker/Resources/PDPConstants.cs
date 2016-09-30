@@ -24,5 +24,15 @@ namespace PDPTracker.Resources
         // Events
         public const string MenuItemSelected = "MenuItemSelected";
         public const string MenuItemTapped = "MenuItemTapped";
+
+        // Profile Items
+        public const string Title = "Title";
+        public const string Practice = "Practice";
+        public const string Email = "Email";
+        public const string ContactNumber = "Contact Number";
+        public const string Facebook = "Facebook";
+        public const string Twitter = "Twitter";
+        public const string LinkedIn = "LinkedIn";
+
     }
 }

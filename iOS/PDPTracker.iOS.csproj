@@ -94,11 +94,31 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.2.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PDPTracker\PDPTracker.csproj">
       <Project>{B1298EAA-DF29-4226-AE31-26D61DE7EF4C}</Project>
       <Name>PDPTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDPTracker.Models\PDPTracker.Models.csproj">
+      <Project>{1FB4B308-A101-4BFC-9E65-705D5C5B4165}</Project>
+      <Name>PDPTracker.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDPTracker\PDPTracker.Data\PDPTracker.Data.csproj">
+      <Project>{59011766-3532-45B2-A14B-916AC0D05957}</Project>
+      <Name>PDPTracker.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +149,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\PDPSwitchRenderer.cs" />
+    <Compile Include="SQLite_Ios.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\app_icon%402x.png" />

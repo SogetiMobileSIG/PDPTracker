@@ -10,7 +10,7 @@ namespace PDPTracker
     {
         #region Private Fields
 
-        private IDataService _dataService;
+        readonly IDataService _dataService;
 
         #endregion
 
@@ -22,7 +22,7 @@ namespace PDPTracker
             _dataService = new DataService ();
 
             if (activityId < 0) {
-                this.Activity = new Activity () { Id = _dataService.GetActivities ().Count + 1, CompletedDate = DateTime.Now };
+                this.Activity = new Activity () { CompletedDate = DateTime.Now };
                 Title = PDPConstants.NewActivity;
             } else {
                 this.Activity = _dataService.GetActivityById (activityId);

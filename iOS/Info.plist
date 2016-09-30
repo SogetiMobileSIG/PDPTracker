@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>PDPTracker</string>
+	<string>PDP Tracker</string>
 	<key>CFBundleName</key>
-	<string>PDPTracker</string>
+	<string>PDP Tracker</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.intelliabb.pdptracker</string>
 	<key>CFBundleShortVersionString</key>

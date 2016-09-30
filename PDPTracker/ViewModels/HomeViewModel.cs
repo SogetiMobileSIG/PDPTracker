@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using PDPTracker.Models;
 using PDPTracker.Resources;
@@ -31,17 +32,13 @@ namespace PDPTracker
 
         public bool IsLoggedIn => true;
 
-        public List<Activity> Activities {
-            get { return _dataService.GetActivities(); }
-        }
+        public List<Activity> Activities => _dataService.GetActivities ();
 
         public Activity SelectedActivity {
             set
             {
-                if (value == null) 
-                    return;
-
-                CurrentPage.Navigation.PushAsync(new ActivityPage(value.Id));
+                if (value != null) 
+                    CurrentPage.Navigation.PushAsync(new ActivityPage(value.Id));
             }
         }
 
@@ -54,6 +51,19 @@ namespace PDPTracker
         void OnNewActivity (object obj)
         {
             CurrentPage.Navigation.PushAsync (new ActivityPage ());
+        }
+
+        public ICommand DeleteActivityCommand => new Command (OnDeleteActivity);
+
+        async void OnDeleteActivity (object obj)
+        {
+            var activity = (Activity)obj;
+
+            if (activity == null) 
+                return;
+
+            if (await CurrentPage.DisplayAlert ("Delete", "Are you sure you want to delete this activity?", "Yes", "No"))
+                _dataService.DeleteActivity (activity.Id);
         }
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PDPTracker.Models;
 using PDPTracker.Resources;
 using Xamarin.Forms;
 
@@ -15,30 +16,47 @@ namespace PDPTracker
             PopulateProfileItems ();
         }
 
-        void PopulateProfileItems ()
-        {
-            ProfileItems = new List<ProfileItem> {
-                new ProfileItem { Item = "Title", Value = "Senior Consultant" },
-                new ProfileItem { Item = "Practice", Value = "Digital Transformation (DT)" },
-                new ProfileItem { Item = "Email", Value = "hussain.abbasi@us.sogeti.com" },
-                new ProfileItem { Item = "Contact Number", Value = "832.606.6656" }
-            };
-        }
 
         public List<ProfileItem> ProfileItems { get; set; }
 
-        private string _profileTitle = "Sogeti Profile";
-        public string ProfileTitle {
-            get {
-                return _profileTitle;
+        public User User => App.CurrentUser;
+
+        void PopulateProfileItems ()
+        {
+            if(ProfileItems == null)
+                ProfileItems = new List<ProfileItem> ();
+
+            if (User == null)
+                return;
+
+            if(!string.IsNullOrWhiteSpace (User.Title)){
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.Title, Value = User.Title });
             }
-            set {
-                _profileTitle = value;
-                OnPropertyChanged ();
+
+            if (!string.IsNullOrWhiteSpace (User.Practice)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.Practice, Value = User.Practice });
+            }
+
+            if(!string.IsNullOrWhiteSpace (User.Email)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.Email, Value = User.Email });
+            }
+
+            if(!string.IsNullOrWhiteSpace (User.ContactNumber)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.ContactNumber, Value = User.ContactNumber });
+            }
+
+            if(!string.IsNullOrWhiteSpace (User.FacebookLink)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.Facebook, Value = User.FacebookLink });
+            }
+
+            if(!string.IsNullOrWhiteSpace (User.TwitterHandle)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.Twitter, Value = User.TwitterHandle });
+            }
+
+            if(!string.IsNullOrWhiteSpace (User.LinkedInProfileLink)) {
+                ProfileItems.Add (new ProfileItem { Item = PDPConstants.LinkedIn, Value = User.LinkedInProfileLink });
             }
         }
-
-        public User User => App.CurrentUser;
     }
 }
 
