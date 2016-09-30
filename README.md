@@ -11,7 +11,7 @@ PDP Tracker helps you track your activities for IBP dashboard. Have an activity 
 ### Activities
 ![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/Activities.png)
 ![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/Activities.png)
-![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/NavigationDrawer.png)
+![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/Android/NavigationDrawer.png)
 
 ### New Activity
 ![Activities](https://github.com/SogetiMobileSIG/PDPTracker/blob/master/Screenshots/iOS/NewActivity.png)
