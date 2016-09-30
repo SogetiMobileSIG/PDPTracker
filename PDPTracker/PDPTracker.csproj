@@ -117,7 +117,7 @@
       <Project>{1FB4B308-A101-4BFC-9E65-705D5C5B4165}</Project>
       <Name>PDPTracker.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="PDPTracker.Data\PDPTracker.Data.csproj">
+    <ProjectReference Include="..\PDPTracker.Data\PDPTracker.Data.csproj">
       <Project>{59011766-3532-45B2-A14B-916AC0D05957}</Project>
       <Name>PDPTracker.Data</Name>
     </ProjectReference>

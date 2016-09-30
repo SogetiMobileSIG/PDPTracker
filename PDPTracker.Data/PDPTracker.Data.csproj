@@ -59,7 +59,7 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PDPTracker.Models\PDPTracker.Models.csproj">
+    <ProjectReference Include="..\PDPTracker.Models\PDPTracker.Models.csproj">
       <Project>{1FB4B308-A101-4BFC-9E65-705D5C5B4165}</Project>
       <Name>PDPTracker.Models</Name>
     </ProjectReference>
