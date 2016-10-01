@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace PDPTracker.Resources
+﻿namespace PDPTracker.Resources
 {
     public static class PDPConstants
     {
@@ -33,6 +26,10 @@ namespace PDPTracker.Resources
         public const string Facebook = "Facebook";
         public const string Twitter = "Twitter";
         public const string LinkedIn = "LinkedIn";
+
+        public const string FacebookLink = "http://www.facebook.com";
+        public const string TwitterLink = "http://www.twitter.com";
+        public const string LinkedInLink = "http://www.linkedin.com/in/";
 
     }
 }

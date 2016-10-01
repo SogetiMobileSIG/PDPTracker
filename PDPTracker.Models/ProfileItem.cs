@@ -3,15 +3,9 @@ namespace PDPTracker.Models
 {
     public class ProfileItem
     {
-        public string Item {
-            get;
-            set;
-        }
-
-        public string Value {
-            get;
-            set;
-        }
+        public string Item { get; set; }
+        public string Value { get; set; }
+        public bool IsWebLink { get; set; }
     }
 }
 

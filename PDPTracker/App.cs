@@ -18,10 +18,10 @@ namespace PDPTracker
             Name = "Hussain N. Abbasi",
             Title = "Senior Consultant",
             Practice = "Digital Transformation",
-            ContactNumber = "832-606-6656",
-            FacebookLink = "https://www.facebook.com/hnabbasi",
-            TwitterHandle = "hnabbasi",
-            LinkedInProfileLink = "https://www.linkedin.com/in/hnabbasi"
+            ContactNumber = "555-555-5555",
+            FacebookUsername = "hnabbasi",
+            TwitterHandle = "hussain779",
+            LinkedInUsername = "hnabbasi"
         };
 
         public static User CurrentUser => _currentUser;

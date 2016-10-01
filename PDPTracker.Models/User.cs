@@ -7,9 +7,9 @@
         public string Practice { get; set; }
         public string Email { get; set; }
         public string ContactNumber { get; set; }
-        public string FacebookLink { get; set; }
+        public string FacebookUsername { get; set; }
         public string TwitterHandle { get; set; }
-        public string LinkedInProfileLink { get; set; }
+        public string LinkedInUsername { get; set; }
     }
 }
 

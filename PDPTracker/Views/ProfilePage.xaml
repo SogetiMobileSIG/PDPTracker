@@ -18,14 +18,16 @@
 				TextColor="White"/>
 			</Frame>
 
-			<ListView Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" ItemsSource="{Binding ProfileItems}" 
+			<ListView Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" 
+					ItemsSource="{Binding ProfileItems}" 
+					SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
 					RowHeight="70" 
 					SeparatorVisibility="None"
 					ItemSelected="Handle_ItemSelected">
 				
 				<ListView.ItemTemplate>
 					<DataTemplate>
-						<TextCell Text="{Binding Value}" Detail="{Binding Item}"/>
+						<ImageCell ImageSource="app_icon.png" Text="{Binding Value}" Detail="{Binding Item}"/>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>

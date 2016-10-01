@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using PDPTracker.Models;
 using Xamarin.Forms;
 
 namespace PDPTracker
@@ -18,13 +18,13 @@ namespace PDPTracker
 
         void Handle_ItemSelected (object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            // Clear selection
             var lv = sender as ListView;
 
-            if (lv == null) return;
-
-            if (lv.SelectedItem != null)
-                lv.SelectedItem = null;
+            if (lv == null || lv.SelectedItem == null) 
+                return;
+            
+            // Clear selection
+            lv.SelectedItem = null;
         }
     }
 }
