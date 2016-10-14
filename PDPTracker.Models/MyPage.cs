@@ -12,7 +12,7 @@ namespace PDPTracker.Models
         public MyPage ()
         {
             var button = new Button {
-                Text = "Click Me!",
+                Text = "Click Me !",
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
