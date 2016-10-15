@@ -11,7 +11,7 @@ namespace PDPTracker.Data
         #region Private Fields
 
         readonly SQLiteConnection _database;
-        object locker = new object();
+        readonly object locker = new object ();
 
         #endregion
 
