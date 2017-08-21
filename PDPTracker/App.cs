@@ -16,11 +16,11 @@ namespace PDPTracker
 
         private static User _currentUser = new User { 
             Name = "Hussain N. Abbasi",
-            Title = "Senior Consultant",
+            Title = "Manager",
             Practice = "Digital Transformation",
             ContactNumber = "555-555-5555",
             FacebookUsername = "hnabbasi",
-            TwitterHandle = "hussain779",
+            TwitterHandle = "HussainNAbbasi",
             LinkedInUsername = "hnabbasi"
         };
 
